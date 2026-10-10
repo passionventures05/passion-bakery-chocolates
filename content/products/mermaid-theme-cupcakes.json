@@ -1,0 +1,16 @@
+{
+  "name": "Mermaid Theme Cupcakes",
+  "category": "Cupcakes",
+  "available": true,
+  "order": 20,
+  "basePrice": 470,
+  "baseQuantity": "6pc",
+  "availableQuantities": [
+    "6pc",
+    "12pc",
+    "18pc",
+    "24pc"
+  ],
+  "description": "Shimmering mermaid-themed cupcakes with sea-glass colours and pearly toppings. The price shown is for a pack of 6.",
+  "image": "/uploads/products/mermaid-theme-cupcakes.webp"
+}

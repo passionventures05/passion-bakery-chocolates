@@ -1,0 +1,174 @@
+# ============================================================================
+#  Decap CMS configuration  -  Passion Chocolate World (PB&C)   [GitHub Pages edition]
+#  >>> BEFORE GOING LIVE, EDIT THESE TWO VALUES (see docs/GITHUB-PAGES-SETUP.md) <<<
+#      repo:      your GitHub "username/repository"      (example: priya/passion-bakery-chocolates)
+#      base_url:  the address of your deployed Cloudflare login worker
+#                 (example: https://passion-chocolates-cms-auth.priya.workers.dev  - no slash at the end)
+#  Everything else can stay as it is.
+# ============================================================================
+backend:
+  name: github
+  repo: passionventures05/passion-bakery-chocolates            # <-- EDIT
+  branch: main
+  base_url: https://passion-chocolates-cms-auth.YOUR-SUBDOMAIN.workers.dev   # <-- EDIT
+  auth_endpoint: auth
+  commit_messages:
+    create: 'Add product "{{slug}}"'
+    update: 'Update product "{{slug}}"'
+    delete: 'Delete product "{{slug}}"'
+    uploadMedia: 'Upload photo "{{path}}"'
+    deleteMedia: 'Delete photo "{{path}}"'
+
+# Used only when you run the CMS on your own computer (npm run dev:cms). Ignored on the live site.
+local_backend: true
+
+publish_mode: simple            # saving = published (the site rebuilds in about a minute)
+site_url: https://passionbakerynchocos.co.in
+display_url: https://passionbakerynchocos.co.in
+logo_url: /Chocolate_Logo.jpg
+locale: en
+
+media_folder: public/uploads/products
+public_folder: /uploads/products
+
+collections:
+  - name: products
+    label: Products
+    label_singular: Product
+    description: Every chocolate and treat shown on the website. Add a new product, change a price or photo, or hide a product.
+    folder: content/products
+    create: true
+    delete: true
+    extension: json
+    format: json
+    slug: "{{slug}}"
+    identifier_field: name
+    summary: "{{name}}  ·  {{category}}  ·  ₹{{basePrice}}"
+    sortable_fields: ["name", "category", "basePrice", "order"]
+    view_filters:
+      - { label: "Hidden products", field: available, pattern: false }
+      - { label: "No photo yet", field: image, pattern: "^$" }
+    view_groups:
+      - { label: Category, field: category }
+    fields:
+      - label: Product name
+        name: name
+        widget: string
+        hint: "Shown to customers. Each product must have a different name."
+        pattern: ["^.{3,80}$", "Please enter 3 to 80 characters"]
+
+      - label: Photo
+        name: image
+        widget: image
+        required: false
+        hint: "JPG or WebP, at least 800 px wide, under 800 KB. A photo taken from the front or top works best."
+
+      - label: Category
+        name: category
+        widget: select
+        options:
+          - "Handmade Chocolates"
+          - "Truffles & Pralines"
+          - "Chocolate Bars"
+          - "Cupcakes"
+          - "Donuts"
+          - "Macarons"
+          - "Brownies"
+          - "Ghewar"
+
+      - label: Starting price (₹)
+        name: basePrice
+        widget: number
+        value_type: int
+        min: 1
+        hint: "The price for the BASE SIZE chosen below. Other sizes are priced in proportion (12 pieces cost 2 x the price of 6 pieces; 3 donuts cost 3 x the price of 1 donut)."
+
+      - label: Base size (the size the price above is for)
+        name: baseQuantity
+        widget: select
+        default: "6pc"
+        options:
+          - { label: "1 piece", value: "1pc" }
+          - { label: "2 pieces", value: "2pc" }
+          - { label: "3 pieces", value: "3pc" }
+          - { label: "4 pieces", value: "4pc" }
+          - { label: "5 pieces", value: "5pc" }
+          - { label: "6 pieces", value: "6pc" }
+          - { label: "7 pieces", value: "7pc" }
+          - { label: "8 pieces", value: "8pc" }
+          - { label: "9 pieces", value: "9pc" }
+          - { label: "10 pieces", value: "10pc" }
+          - { label: "11 pieces", value: "11pc" }
+          - { label: "12 pieces", value: "12pc" }
+          - { label: "15 pieces", value: "15pc" }
+          - { label: "16 pieces", value: "16pc" }
+          - { label: "18 pieces", value: "18pc" }
+          - { label: "20 pieces", value: "20pc" }
+          - { label: "24 pieces", value: "24pc" }
+          - { label: "30 pieces", value: "30pc" }
+          - { label: "36 pieces", value: "36pc" }
+          - { label: "50 pieces", value: "50pc" }
+          - { label: "100 pieces", value: "100pc" }
+          - { label: "100 g", value: "100gm" }
+          - { label: "150 g", value: "150gm" }
+          - { label: "200 g", value: "200gm" }
+          - { label: "250 g", value: "250gm" }
+          - { label: "500 g", value: "500gm" }
+          - { label: "750 g", value: "750gm" }
+          - { label: "1 kg", value: "1kg" }
+
+      - label: Sizes customers can choose
+        name: availableQuantities
+        widget: select
+        multiple: true
+        min: 1
+        default: ["6pc", "12pc", "18pc", "24pc"]
+        hint: "Tick every size you sell. Use EITHER pieces (cupcakes, brownies, donuts) OR weights (loose chocolates) – not both."
+        options:
+          - { label: "1 piece", value: "1pc" }
+          - { label: "2 pieces", value: "2pc" }
+          - { label: "3 pieces", value: "3pc" }
+          - { label: "4 pieces", value: "4pc" }
+          - { label: "5 pieces", value: "5pc" }
+          - { label: "6 pieces", value: "6pc" }
+          - { label: "7 pieces", value: "7pc" }
+          - { label: "8 pieces", value: "8pc" }
+          - { label: "9 pieces", value: "9pc" }
+          - { label: "10 pieces", value: "10pc" }
+          - { label: "11 pieces", value: "11pc" }
+          - { label: "12 pieces", value: "12pc" }
+          - { label: "15 pieces", value: "15pc" }
+          - { label: "16 pieces", value: "16pc" }
+          - { label: "18 pieces", value: "18pc" }
+          - { label: "20 pieces", value: "20pc" }
+          - { label: "24 pieces", value: "24pc" }
+          - { label: "30 pieces", value: "30pc" }
+          - { label: "36 pieces", value: "36pc" }
+          - { label: "50 pieces", value: "50pc" }
+          - { label: "100 pieces", value: "100pc" }
+          - { label: "100 g", value: "100gm" }
+          - { label: "150 g", value: "150gm" }
+          - { label: "200 g", value: "200gm" }
+          - { label: "250 g", value: "250gm" }
+          - { label: "500 g", value: "500gm" }
+          - { label: "750 g", value: "750gm" }
+          - { label: "1 kg", value: "1kg" }
+
+      - label: Description
+        name: description
+        widget: text
+        required: false
+        hint: "A sentence or two about the flavour, filling and toppings. Shown when a customer opens the product."
+
+      - label: Show on website
+        name: available
+        widget: boolean
+        default: true
+        hint: "Switch OFF to hide the product without deleting it (e.g. out of season)."
+
+      - label: Position in the list
+        name: order
+        widget: number
+        value_type: int
+        required: false
+        hint: "1 = shown first. Leave empty to put the product at the end. Tip: use 5 to place it before the product that is at 10."

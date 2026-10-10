@@ -1,0 +1,16 @@
+{
+  "name": "Red Velvet Cupcake",
+  "category": "Cupcakes",
+  "available": true,
+  "order": 150,
+  "basePrice": 550,
+  "baseQuantity": "6pc",
+  "availableQuantities": [
+    "6pc",
+    "12pc",
+    "18pc",
+    "24pc"
+  ],
+  "description": "Velvety red cupcake with a swirl of vanilla cream and sweet pearls. The price shown is for a pack of 6.",
+  "image": "/uploads/products/red-velvet-cupcake.webp"
+}

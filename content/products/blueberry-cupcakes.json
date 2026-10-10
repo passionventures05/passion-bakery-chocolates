@@ -1,0 +1,16 @@
+{
+  "name": "Blueberry Cupcakes",
+  "category": "Cupcakes",
+  "available": true,
+  "order": 60,
+  "basePrice": 370,
+  "baseQuantity": "6pc",
+  "availableQuantities": [
+    "6pc",
+    "12pc",
+    "18pc",
+    "24pc"
+  ],
+  "description": "A soft vanilla cupcake with juicy blueberry and a swirl of blueberry cream. The price shown is for a pack of 6.",
+  "image": "/uploads/products/blueberry-cupcakes.webp"
+}

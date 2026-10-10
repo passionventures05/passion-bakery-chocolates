@@ -1,0 +1,16 @@
+{
+  "name": "Macarons",
+  "category": "Macarons",
+  "available": true,
+  "order": 190,
+  "basePrice": 300,
+  "baseQuantity": "4pc",
+  "availableQuantities": [
+    "4pc",
+    "8pc",
+    "12pc",
+    "16pc"
+  ],
+  "description": "Delicate almond macarons in assorted colours with a creamy filling. The price shown is for a box of 4.",
+  "image": "/uploads/products/macarons.webp"
+}

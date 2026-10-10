@@ -1,0 +1,16 @@
+{
+  "name": "Premium Ghewar",
+  "category": "Ghewar",
+  "available": true,
+  "order": 220,
+  "basePrice": 550,
+  "baseQuantity": "1pc",
+  "availableQuantities": [
+    "1pc",
+    "3pc",
+    "5pc",
+    "7pc"
+  ],
+  "description": "Our richer ghewar, topped with creamy rabri, dry fruits and rose petals. Priced per piece.",
+  "image": "/uploads/products/premium-ghewar.webp"
+}

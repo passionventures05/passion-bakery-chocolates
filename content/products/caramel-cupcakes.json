@@ -1,0 +1,16 @@
+{
+  "name": "Caramel Cupcakes",
+  "category": "Cupcakes",
+  "available": true,
+  "order": 70,
+  "basePrice": 380,
+  "baseQuantity": "6pc",
+  "availableQuantities": [
+    "6pc",
+    "12pc",
+    "18pc",
+    "24pc"
+  ],
+  "description": "A buttery cupcake with a silky caramel topping. The price shown is for a pack of 6.",
+  "image": "/uploads/products/caramel-cupcakes.webp"
+}

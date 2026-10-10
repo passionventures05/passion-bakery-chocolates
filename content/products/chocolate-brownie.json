@@ -1,0 +1,16 @@
+{
+  "name": "Chocolate Brownie",
+  "category": "Brownies",
+  "available": true,
+  "order": 200,
+  "basePrice": 70,
+  "baseQuantity": "1pc",
+  "availableQuantities": [
+    "1pc",
+    "3pc",
+    "5pc",
+    "7pc"
+  ],
+  "description": "Dense, fudgy chocolate brownie with a crackly top. Priced per piece.",
+  "image": "/uploads/products/chocolate-brownie.webp"
+}

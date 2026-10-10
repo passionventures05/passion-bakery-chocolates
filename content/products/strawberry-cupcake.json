@@ -1,0 +1,16 @@
+{
+  "name": "Strawberry Cupcake",
+  "category": "Cupcakes",
+  "available": true,
+  "order": 180,
+  "basePrice": 550,
+  "baseQuantity": "6pc",
+  "availableQuantities": [
+    "6pc",
+    "12pc",
+    "18pc",
+    "24pc"
+  ],
+  "description": "A soft cupcake with fresh strawberry and cream. The price shown is for a pack of 6.",
+  "image": "/uploads/products/strawberry-cupcake.webp"
+}

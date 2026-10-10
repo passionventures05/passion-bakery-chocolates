@@ -1,0 +1,16 @@
+{
+  "name": "Donuts",
+  "category": "Donuts",
+  "available": true,
+  "order": 10,
+  "basePrice": 65,
+  "baseQuantity": "1pc",
+  "availableQuantities": [
+    "3pc",
+    "6pc",
+    "9pc",
+    "12pc"
+  ],
+  "description": "Soft, fluffy donuts finished with a rich chocolate glaze. Priced per piece and sold in sets of 3, 6, 9 or 12.",
+  "image": "/uploads/products/donuts.webp"
+}

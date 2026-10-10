@@ -1,0 +1,16 @@
+{
+  "name": "Classic Ghewar",
+  "category": "Ghewar",
+  "available": true,
+  "order": 210,
+  "basePrice": 375,
+  "baseQuantity": "1pc",
+  "availableQuantities": [
+    "1pc",
+    "3pc",
+    "5pc",
+    "7pc"
+  ],
+  "description": "Traditional crisp, honeycomb-textured ghewar soaked in sugar syrup. Priced per piece.",
+  "image": "/uploads/products/classic-ghewar.webp"
+}
