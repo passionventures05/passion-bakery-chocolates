@@ -10,7 +10,7 @@ backend:
   name: github
   repo: passionventures05/passion-bakery-chocolates            # <-- EDIT
   branch: main
-  base_url: https://passion-chocolates-cms-auth.YOUR-SUBDOMAIN.workers.dev   # <-- EDIT
+  base_url: https://passion-chocolates-cms-auth.passionventures.workers.dev
   auth_endpoint: auth
   commit_messages:
     create: 'Add product "{{slug}}"'
