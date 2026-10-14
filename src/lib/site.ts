@@ -10,7 +10,7 @@ export const site = {
   phone: "8657216555",
   phoneDisplay: "+91 86572 16555",
   whatsappNumber: "918657216555", // country code + number, digits only
-  email: "pbcpassionchocolate21@gmail.com",
+  email: "PassionChocolatesWorld@gmail.com",
   hours: "Mon-Fri: 10 AM - 7 PM, Sat: 9 AM - 1 PM",
   address: "Mumbai, Maharashtra, India",
   city: "Mumbai",
