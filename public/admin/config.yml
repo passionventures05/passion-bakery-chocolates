@@ -25,7 +25,7 @@ local_backend: true
 publish_mode: simple            # saving = published (the site rebuilds in about a minute)
 site_url: https://passionbakerynchocos.co.in
 display_url: https://passionbakerynchocos.co.in
-logo_url: /Chocolate_Logo.jpg
+logo_url: /PCW_Logo.png
 locale: en
 
 media_folder: public/uploads/products

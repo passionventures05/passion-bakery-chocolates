@@ -25,7 +25,7 @@ export const site = {
   instagramHandle: "@passionchocolatesworld",
 
   /** Photo shown in the "About" section (swap for a photo of the chocolatier any time). */
-  aboutImage: "/Chocolate_Logo-480.webp",
+  aboutImage: "/PCW_Logo-480.webp",
 
   /** Products shown in "Signature Treats" on the home page (must match the product names exactly). */
   featured: [

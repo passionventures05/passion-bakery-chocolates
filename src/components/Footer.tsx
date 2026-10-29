@@ -10,7 +10,7 @@ export default function Footer({ hidePhone = false }: { hidePhone?: boolean }) {
     <footer className="business-footer">
       <div className="footer-content">
         <div className="footer-section">
-          <img src="/Chocolate_Logo-96.webp" width={96} height={96} alt={`${site.name} logo`} className="footer-logo-img" loading="lazy" decoding="async" />
+          <img src="/PCW_Logo-160.webp" width={160} height={163} alt={`${site.name} logo`} className="footer-logo-img" loading="lazy" decoding="async" />
           <p className="footer-brand-name">{site.name} ({site.shortName})</p>
           <p>
             Crafting sweet memories with every bite. We specialise in handmade chocolates and sweet

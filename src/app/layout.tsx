@@ -23,7 +23,7 @@ export const metadata: Metadata = {
   title: { default: `${site.name} | Handmade Chocolates in ${site.city}`, template: `%s | ${site.name}` },
   description: site.description,
   applicationName: site.name,
-  icons: { icon: "/Chocolate_Logo.jpg", apple: "/Chocolate_Logo.jpg" },
+  icons: { icon: "/PCW_Logo-icon.png", apple: "/PCW_Logo-apple.png" },
   openGraph: {
     type: "website",
     siteName: site.name,
