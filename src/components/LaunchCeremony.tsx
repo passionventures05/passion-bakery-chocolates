@@ -3,6 +3,8 @@
 import { Capacitor } from "@capacitor/core";
 import { useCallback, useEffect, useRef, useState, type CSSProperties } from "react";
 import { doneKey, formatLaunchLabel, isLocalHost, launch, resolveLaunch, toIstInput } from "@/lib/launch";
+import { armApplause, playApplause, stopApplause } from "@/lib/applause";
+import { startAutoScroll } from "@/lib/auto-scroll";
 import { firePoppers } from "@/lib/poppers";
 import { site } from "@/lib/site";
 
@@ -182,6 +184,7 @@ export default function LaunchCeremony() {
   const tickRef = useRef<number | undefined>(undefined);
   const timers = useRef<number[]>([]);
   const canvasRef = useRef<HTMLCanvasElement>(null);
+  const stopScroll = useRef<(() => void) | null>(null);
 
   const go = (p: Phase) => {
     phaseRef.current = p;
@@ -213,6 +216,7 @@ export default function LaunchCeremony() {
     setLabel(formatLaunchLabel(r.launchAt));
     root.setAttribute("data-launch", "pending");
     lockPage(true);
+    const disarmApplause = armApplause(); // fetch applause.wav now and unlock sound on the visitor's first tap
 
     const tick = () => {
       const s = Math.max(0, Math.ceil((launchAtRef.current - (Date.now() + clockOffset.current)) / 1000));
@@ -244,10 +248,18 @@ export default function LaunchCeremony() {
     return () => {
       window.clearInterval(tickRef.current);
       lockPage(false);
+      disarmApplause();
     };
   }, []);
 
-  useEffect(() => () => timers.current.forEach((t) => window.clearTimeout(t)), []);
+  useEffect(
+    () => () => {
+      timers.current.forEach((t) => window.clearTimeout(t));
+      stopApplause();
+      stopScroll.current?.();
+    },
+    [],
+  );
 
   /* ---- the cut: ribbon parts -> curtains draw open -> poppers ---- */
   const startCut = useCallback(() => {
@@ -306,11 +318,17 @@ export default function LaunchCeremony() {
 
   useEffect(() => {
     if (!poppers || !canvasRef.current) return;
+    playApplause(); // the applause starts at the very instant the poppers pop
     return firePoppers(canvasRef.current, {
       colors: launch.theme.confetti,
       balloonColors: launch.theme.balloons,
       reduced: reducedMotion(),
-      onDone: () => setPoppers(false),
+      onDone: () => {
+        setPoppers(false);
+        // the balloons and fireworks are over: slowly drift down the page, top to bottom
+        stopScroll.current?.();
+        stopScroll.current = startAutoScroll();
+      },
     });
   }, [poppers]);
 
